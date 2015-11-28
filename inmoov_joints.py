@@ -56,12 +56,12 @@ from maestro_lib import Device
 
 INMOOV_LIMITS = [
     [0,0],  # test servo
-    [2432,5504],  # head up-down
+    [608,1376],  # head up-down
 ]
 
 INMOOV_HEAD_SERVO = 1
 
-servo = Device("/dev/ttyACM0","/dev/ttyACM1")
+servo = Device("/dev/ttyAMA0","/dev/ttyAMA0")
 
 import sys
 from math import floor
@@ -72,12 +72,11 @@ def move_head(direction = 'up'):
     if(direction == 'up'):
         target = INMOOV_LIMITS[INMOOV_HEAD_SERVO][1]  # upper limit
     elif(direction == 'center'):
-        target = INMOOV_LIMITS[INMOOV_HEAD_SERVO][0] + int(floor((INMOOV_LIMITS[INMOOV_HEAD_SERVO][1]-INMOOV_LIMITS[INMOOV_HEAD_SERVO][1])/2))
+        target = INMOOV_LIMITS[INMOOV_HEAD_SERVO][0] + int(floor((INMOOV_LIMITS[INMOOV_HEAD_SERVO][1]-INMOOV_LIMITS[INMOOV_HEAD_SERVO][0])/2))
     elif(direction == 'down'):
         target = INMOOV_LIMITS[INMOOV_HEAD_SERVO][0]  # lower limit
     else:
         print 'Invalid direction'
     if target is not None:
-        print 'do! {0}'.format(target)
-        target = 1114
+        print 'Target: {0}'.format(target)
         servo.set_target(INMOOV_HEAD_SERVO, target)
