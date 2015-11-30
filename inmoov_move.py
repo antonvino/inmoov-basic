@@ -5,26 +5,26 @@ import time
 cmd = sys.argv[1]
 if(cmd == "yes"):
     print '[CMD] Yes. Nodding.'
-    head('pitch', HIGH)
+    head('pitch', HIGH, 20)
     time.sleep(0.3)
-    head('pitch', LOW)
+    head('pitch', LOW, 20)
     time.sleep(0.3)
-    head('pitch', HIGH)
+    head('pitch', HIGH, 20)
     time.sleep(0.3)
-    head('pitch', LOW)
+    head('pitch', LOW, 20)
     time.sleep(0.2)
-    head('pitch', MIDDLE)
+    head('pitch', MIDDLE, 20)
 elif(cmd == "no"):
     print '[CMD] No. Shaking head.'
-    head('yaw', LOW)
+    head('yaw', LOW, 20)
     time.sleep(0.3)
-    head('yaw', HIGH)
+    head('yaw', HIGH, 20)
     time.sleep(0.3)
-    head('yaw', LOW)
+    head('yaw', LOW, 20)
     time.sleep(0.3)
-    head('yaw', HIGH)
+    head('yaw', HIGH, 20)
     time.sleep(0.2)
-    head('yaw', MIDDLE)
+    head('yaw', MIDDLE, 20)
 elif(cmd == "wave_left"):
     print '[CMD] Waving left hand.'
     # up-shoulder up PITCH is fwd-back shoulder
@@ -47,6 +47,28 @@ elif(cmd == "wave_left"):
     time.sleep(4)
     # back to normal
     arm_init(LEFT)
+elif(cmd == "dance"):
+    print '[CMD] Dancing.'
+    #arm_init(LEFT)
+    #arm_init(RIGHT)
+    torso(HIGH)
+    time.sleep(2)
+    torso(LOW)
+    time.sleep(2)
+    torso(HIGH)
+    time.sleep(2)
+    torso(LOW)
+elif(cmd == "panhead"):
+    print '[CMD] Panning.'
+    head('yaw', LOW, 1)
+    time.sleep(5)
+    head('yaw', HIGH, 1)
+    time.sleep(5)
+    head('yaw', LOW, 1)
+    time.sleep(5)
+    head('yaw', HIGH, 1)
+    time.sleep(5)
+    head('yaw', MIDDLE, 1)
 elif(cmd == "hands_up"):
     # left up-shoulder up
     # right up-shoulder up
@@ -67,3 +89,6 @@ elif(cmd == "hands_wave"):
 elif(cmd == "arm_init"):
     arm_init(LEFT)
     arm_init(RIGHT)
+elif(cmd == "arm_abitup"):
+    arm_abitup(LEFT)
+    arm_abitup(RIGHT)

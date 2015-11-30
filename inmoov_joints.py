@@ -15,11 +15,11 @@ INMOOV_JOINTS = [
     [1760,2000,2304],  # L shoulder roll
     [816,1600,2448],  # L shoulder pitch
     [512,1350,2288],  # L shoulder yaw
-    [976,1200,1408],  # L elbow
+    [896,1200,1456],  # L elbow
     [1472,1600,1952],  # R shoulder roll
     [1024,1500,2144],  # R shoulder pitch
     [560,1560,2560],  # R shoulder yaw
-    [1296,1696,2096],  # R elbow
+    [800,1300,1424],  # R elbow
 ]
 
 INMOOV_SERVOS = {
@@ -68,12 +68,13 @@ servo = Device("/dev/ttyAMA0","/dev/ttyAMA0")
 import sys
 from math import floor
 
-def head(part, pos):
+def head(part, pos, speed = 5):
     if pos_valid(pos):
         print '[MOVE] Head: {0} {1}'.format(part, POS_NAMES[pos])
         srv = INMOOV_SERVOS['head'][part]
         target = INMOOV_JOINTS[srv][pos]
         print 'Target: {0}'.format(target)
+        servo.set_speed(srv, speed)
         servo.set_target(srv, target)
     else:
         print 'Invalid position'
@@ -84,6 +85,8 @@ def torso(pos):
         srv = INMOOV_SERVOS['torso']
         target = INMOOV_JOINTS[srv][pos]
         print 'Target: {0}'.format(target)
+        servo.set_speed(srv,5)
+        servo.set_acceleration(srv,5)
         servo.set_target(srv, target)
     else:
         print 'Invalid position'
@@ -118,6 +121,12 @@ def pos_valid(pos):
 
 def arm_init(side):
     shoulder(side, 'pitch', MIDDLE)
+    shoulder(side, 'yaw', MIDDLE)
+    shoulder(side, 'roll', LOW)
+    elbow(side, HIGH)
+
+def arm_abitup(side):
+    shoulder(side, 'pitch', MIDDLE,300)
     shoulder(side, 'yaw', MIDDLE)
     shoulder(side, 'roll', LOW)
     elbow(side, HIGH)
