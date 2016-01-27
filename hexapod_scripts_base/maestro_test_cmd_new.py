@@ -2,21 +2,21 @@
 from leg_lib import *
 import time
 
+set1 = [0,2,4]
+set2 = [1,3,5]
+
 legset = 1
 cmd = sys.argv[1]
 if(cmd != "init"):
     legset = int(sys.argv[2])
 if(legset == 1):
-    legs = [0,1,2]
+    legs = set1
 else:
-    legs = [3,4,5]
+    legs = set2
 if(cmd == "lift"):
     print '[CMD] Lift legs {0}'.format(legs)
     for leg in legs:
         lift_leg(leg)
-elif(cmd == "lift_one"):
-    print '[CMD] Lift one leg {0}'.format(legset)
-    lift_leg(legset)
 elif(cmd == "lower"):
     print '[CMD] Lower legs {0}'.format(legs)
     for leg in legs:
@@ -42,52 +42,53 @@ elif(cmd == "step_fwd"):
         legset = 1
     step = 0
     while(step < legset):
+        delay = 1
         # assuming initially init()
         # lift 1 set up
-        legs = [0,1,2]
+        legs = set1
         for leg in legs:
             lift_leg(leg)
-        time.sleep(0.2)
+        time.sleep(delay)
         # move 1 set forward
-        legs = [0,1,2]
+        legs = set1
         for leg in legs:
             rotate_leg(leg,"forward")
-        time.sleep(0.2)
+        time.sleep(delay)
         # lower 1 set down
-        legs = [0,1,2]
+        legs = set1
         for leg in legs:
             lower_leg(leg)
         # lift 2 set up (same time)
-        legs = [3,4,5]
+        legs = set2
         for leg in legs:
             lift_leg(leg)
-        time.sleep(0.2)
+        time.sleep(delay)
         # move 1 set to middle (this should move the body forward if there
         # is not too much slip)
-        legs = [0,1,2]
+        legs = set1
         for leg in legs:
             rotate_leg(leg,"middle")
-        time.sleep(0.2)
+        time.sleep(delay)
         # move set 2 forward
-        legs = [3,4,5]
+        legs = set2
         for leg in legs:
             rotate_leg(leg,"forward")
-        time.sleep(0.2)
+        time.sleep(delay)
         # lower 2 set down
-        legs = [3,4,5]
+        legs = set2
         for leg in legs:
             lower_leg(leg)
         # time.sleep(0.2)
         # lift 1 set up
-        legs = [0,1,2]
+        legs = set1
         for leg in legs:
             lift_leg(leg)
-        time.sleep(0.2)
+        time.sleep(delay)
         # move 2 set to the middle (this should move the body forward)
-        legs = [3,4,5]
+        legs = set2
         for leg in legs:
             rotate_leg(leg,"middle")
-        time.sleep(0.2)
+        time.sleep(delay)
         # increase the step count
         step+=1
 
