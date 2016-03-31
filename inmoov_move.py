@@ -92,3 +92,49 @@ elif(cmd == "arm_init"):
 elif(cmd == "arm_abitup"):
     arm_abitup(LEFT)
     arm_abitup(RIGHT)
+elif(cmd == "slow_1"): # event cmd for moving different things slowly
+    print '[CMD] Slow movements 1.'
+    # first stage
+    torso(HIGH, 2)
+    head('yaw', LOW, 2)
+    elbow(LEFT, HIGH, 2)
+    shoulder(LEFT, 'roll', LOW, 300, 2)
+    time.sleep(5)
+    # second stage
+    torso(LOW, 2)
+    head('yaw', HIGH, 2)
+    elbow(LEFT, LOW, 2)
+    shoulder(LEFT, 'roll', HIGH, -300, 2)
+    # back to normal
+    time.sleep(5)
+    torso(MIDDLE, 2)
+    head('pitch', MIDDLE, 2)
+    head('yaw', MIDDLE, 2)
+    elbow(LEFT, MIDDLE, 2)
+    shoulder(LEFT, 'roll', MIDDLE, 0, 2)
+    shoulder(LEFT, 'yaw', MIDDLE, 0, 2)
+elif(cmd == "slow_2"): # event cmd for moving different things slowly
+    print '[CMD] Slow movements 2.'
+    # first stage
+    torso(HIGH, 2)
+    head('pitch', LOW, 2)
+    elbow(LEFT, HIGH, 2)
+    shoulder(LEFT, 'pitch', HIGH, -300, 2)
+    #shoulder(LEFT, 'roll', LOW, 100, 2)
+    shoulder(LEFT, 'roll', LOW, 100, 2)
+    time.sleep(5)
+    # second stage
+    torso(LOW, 2)
+    head('pitch', HIGH, 2)
+    elbow(LEFT, LOW, 2)
+    shoulder(LEFT, 'roll', HIGH, -100, 2)
+    shoulder(LEFT, 'yaw', HIGH, -100, 2)
+    time.sleep(5)
+    # back to normal
+    torso(MIDDLE, 2)
+    head('pitch', MIDDLE, 2)
+    head('yaw', MIDDLE, 2)
+    elbow(LEFT, MIDDLE, 2)
+    shoulder(LEFT, 'roll', MIDDLE, 0, 2)
+    shoulder(LEFT, 'yaw', MIDDLE, 0, 2)
+    shoulder(LEFT, 'pitch', MIDDLE, -100, 2)
