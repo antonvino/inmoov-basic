@@ -74,10 +74,10 @@ class Device(object):
             #the RX line before sending any commands. The 0xAA baud rate indication byte can be the first byte of a Pololu protocol
             #command.
             #http://www.pololu.com/docs/pdf/0J40/maestro.pdf - page 35
-            self.con.baudrate = 9600
-            self.con.write(chr(0xAA))
-            self.con.flush()
-            log("Baud rate indication byte 0xAA sent!")
+            # self.con.baudrate = 9600
+            # self.con.write(chr(0xAA))
+            # self.con.flush()
+            # log("Baud rate indication byte 0xAA sent!")
             pass
 
         ###################################
