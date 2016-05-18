@@ -79,36 +79,37 @@ def head(part, pos, speed = 5):
     else:
         print 'Invalid position'
 
-def torso(pos):
+def torso(pos, speed = 5):
     if pos_valid(pos):
         print '[MOVE] Torso: {0}'.format(POS_NAMES[pos])
         srv = INMOOV_SERVOS['torso']
         target = INMOOV_JOINTS[srv][pos]
         print 'Target: {0}'.format(target)
-        servo.set_speed(srv,5)
-        servo.set_acceleration(srv,5)
+        servo.set_speed(srv, speed)
         servo.set_target(srv, target)
     else:
         print 'Invalid position'
 
-def elbow(side, pos):
+def elbow(side, pos, speed = 10):
     if pos_valid(pos):
         print '[MOVE] Elbow: {0} {1}'.format(SIDE_NAMES[side], POS_NAMES[pos])
         srv = INMOOV_SERVOS[SIDE_NAMES[side]]['elbow']
         target = INMOOV_JOINTS[srv][pos]
         print 'Target: {0}'.format(target)
+        servo.set_speed(srv, speed)
         servo.set_target(srv, target)
     else:
         print 'Invalid position'
 
-def shoulder(side, axis, pos, offset = 0):
+def shoulder(side, axis, pos, offset = 0, speed = 10):
     if pos_valid(pos):
-        if(fabs(offset) > 300):
-            offset = 300
+        if(fabs(offset) > 1000):
+            offset = 1000
         print '[MOVE] Shoulder: {0} {1} {2}'.format(SIDE_NAMES[side], axis, POS_NAMES[pos])
         srv = INMOOV_SERVOS[SIDE_NAMES[side]]['shoulder'][axis]
         target = INMOOV_JOINTS[srv][pos]+offset
         print 'Target: {0}'.format(target)
+        servo.set_speed(srv, speed)
         servo.set_target(srv, target)
     else:
         print 'Invalid position'
