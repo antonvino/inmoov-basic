@@ -1,0 +1,64 @@
+<!--Pololu Maestro servo controller settings file, http://www.pololu.com/catalog/product/1350-->
+<UscSettings version="1">
+  <NeverSuspend>false</NeverSuspend>
+  <SerialMode>USB_DUAL_PORT</SerialMode>
+  <FixedBaudRate>9600</FixedBaudRate>
+  <SerialTimeout>0</SerialTimeout>
+  <EnableCrc>false</EnableCrc>
+  <SerialDeviceNumber>12</SerialDeviceNumber>
+  <SerialMiniSscOffset>0</SerialMiniSscOffset>
+  <EnablePullups>false</EnablePullups>
+  <Channels MiniMaestroServoPeriod="80000" ServoMultiplier="1">
+    <!--Period = 20 ms-->
+    <!--Channel 0-->
+    <Channel name="test" mode="Servo" min="256" max="16000" homemode="Ignore" home="256" speed="0" acceleration="0" neutral="3968" range="1905" />
+    <!--Channel 1-->
+    <Channel name="head pitch" mode="Servo" min="2432" max="5504" homemode="Off" home="2432" speed="0" acceleration="0" neutral="5440" range="1905" />
+    <!--Channel 2-->
+    <Channel name="head yaw" mode="Servo" min="3200" max="6016" homemode="Off" home="4544" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 3-->
+    <Channel name="torso (double)" mode="Servo" min="1984" max="9216" homemode="Off" home="1984" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 4-->
+    <Channel name="L shldr roll" mode="Servo" min="7040" max="9216" homemode="Off" home="7040" speed="0" acceleration="0" neutral="8760" range="1905" />
+    <!--Channel 5-->
+    <Channel name="L shldr pitch" mode="Servo" min="7232" max="10624" homemode="Off" home="7232" speed="0" acceleration="0" neutral="7232" range="1905" />
+    <!--Channel 6-->
+    <Channel name="L shldr yaw" mode="Servo" min="5248" max="8000" homemode="Off" home="5248" speed="0" acceleration="0" neutral="5248" range="1905" />
+    <!--Channel 7-->
+    <Channel name="L elbow" mode="Servo" min="3584" max="4608" homemode="Off" home="3584" speed="0" acceleration="0" neutral="4608" range="1905" />
+    <!--Channel 8-->
+    <Channel name="R shldr roll" mode="Servo" min="5888" max="7808" homemode="Off" home="5888" speed="0" acceleration="0" neutral="5888" range="1905" />
+    <!--Channel 9-->
+    <Channel name="R shldr pitch" mode="Servo" min="4224" max="7232" homemode="Off" home="4224" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 10-->
+    <Channel name="R shldr yaw" mode="Servo" min="4608" max="9216" homemode="Off" home="4608" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 11-->
+    <Channel name="R elbow" mode="Servo" min="4800" max="6208" homemode="Off" home="4800" speed="0" acceleration="0" neutral="5696" range="1905" />
+    <!--Channel 12-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 13-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 14-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 15-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 16-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 17-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 18-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 19-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 20-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 21-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 22-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 23-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+  </Channels>
+  <Sequences />
+  <Script ScriptDone="true" />
+</UscSettings>

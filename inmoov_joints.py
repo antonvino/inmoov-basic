@@ -10,16 +10,16 @@ HIGH = 2
 INMOOV_JOINTS = [
     [0,0,0],  # test servo
     [608,1000,1376],  # head pitch
-    [1136,1400,1984],  # head yaw
+    [800,1150,1504],  # head yaw
     [496,1500,2304],  # torso
     [1760,2000,2304],  # L shoulder roll
-    [816,1600,2448],  # L shoulder pitch
-    [512,1350,2288],  # L shoulder yaw
-    [896,1200,1456],  # L elbow
+    [1808,2200,2656],  # L shoulder pitch
+    [1312,1650,2000],  # L shoulder yaw
+    [896,1000,1152],  # L elbow
     [1472,1600,1952],  # R shoulder roll
-    [1024,1500,2144],  # R shoulder pitch
-    [560,1560,2560],  # R shoulder yaw
-    [800,1300,1424],  # R elbow
+    [1056,1400,1808],  # R shoulder pitch
+    [1152,1750,2304],  # R shoulder yaw
+    [1200,1350,1552],  # R elbow
 ]
 
 INMOOV_SERVOS = {
@@ -63,7 +63,7 @@ POS_NAMES = {
     HIGH: 'high'
 }
 
-servo = Device("/dev/ttyAMA0","/dev/ttyAMA0")
+servo = Device("/dev/ttyACM0","/dev/ttyACM0")
 
 import sys
 from math import floor
@@ -119,8 +119,11 @@ def pos_valid(pos):
         valid = True
     return valid
 
-def arm_init(side):
-    shoulder(side, 'pitch', MIDDLE)
+def arm_init(side, reverse = False):
+    if(reverse):
+        shoulder(side, 'pitch', HIGH)
+    else:
+        shoulder(side, 'pitch', LOW)
     shoulder(side, 'yaw', MIDDLE)
     shoulder(side, 'roll', LOW)
     elbow(side, HIGH)
